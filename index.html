@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o Amor da Minha Vida</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+<style>
+    .parallax-content h1 {
+        text-shadow: 0 0 10px rgba(255, 182, 193, 0.8), 
+                     0 0 20px rgba(255, 105, 180, 0.6),
+                     0 0 30px rgba(210, 54, 105, 0.4);
+    }
+    .heart-beat {
+        animation: heartbeat 1.5s ease-in-out infinite;
+    }
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        25% { transform: scale(1.1); }
+        50% { transform: scale(1); }
+        75% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+    .love-timer {
+        text-align: center;
+        background: #fff0f5;
+        padding: 30px;
+        border-radius: 15px;
+        margin: 40px auto;
+        max-width: 600px;
+        box-shadow: 0 5px 20px rgba(255, 182, 193, 0.3);
+    }
+
+    .love-timer h2 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 2.5rem;
+        color: #800020;
+        margin-bottom: 10px;
+    }
+
+    #timer {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #d23669;
+        animation: pulse 2s infinite;
+    }
+</style>
+</head>
+<body>
+    <!-- Efeito Parallax Romântico -->
+    <div class="parallax">
+        <div class="parallax-layer layer-1" data-speed="0.1"></div>
+        <div class="parallax-layer layer-2" data-speed="0.3"></div>
+        <div class="parallax-layer layer-3" data-speed="0.5"></div>
+        <div class="parallax-content">
+            <h1>Para Momozi</h1>
+            <div class="love-timer">
+                <h2>Estamos juntos há:</h2>
+                <p id="timer">Carregando...</p>
+            </div>
+            <p>Uma jornada de amor e felicidade</p>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="container">
+        <section class="letter">
+            <h2>Minha Gata Ana Julia</h2>
+            <div class="letter-content">
+                <p>Meu amor,</p>
+                <p>Amor quero expressar tudo que sinto por você. Desde o momento em que te conheci, minha vida mudou.</p>
+                <p>Você é a pessoa mais incrível que já conheci, sou apaixonado por cada detalhe, seus cabelos, seu jeitinho envergonhado, sua risada. Graças a Deus tenho o privilégio de compartilhar minha vida com você, quero você pelo resto da minha vida.</p>
+                <p>Com todo meu amor,</p>
+                <p class="signature">Seu Gatinho</p>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <h2>Nossos Momentos</h2>
+            <div class="photo-grid">
+                <img src="1.jpg" alt="Eu">
+                <img src="2.jpg" alt="TE">
+                <img src="3.jpg" alt="AMO">
+               
+            </div>
+        </section>
+
+        <section class="music">
+            <h2>Nossa Música</h2>
+            <div class="player">
+                <audio controls loop>
+                    <source src="DJ Snake - Let Me Love You ft. Justin Bieber.mp3">
+                    Seu navegador não suporta o elemento de áudio.
+                </audio>
+                <p class="song-name">Nossa Música Especial</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="petals"></div>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const timerElement = document.getElementById('timer');
+            const startDate = new Date('2025-04-18T00:00:00');
+
+            function updateTimer() {
+                const now = new Date();
+                let diff = now - startDate;
+
+                const seconds = Math.floor(diff / 1000) % 60;
+                const minutes = Math.floor(diff / (1000 * 60)) % 60;
+                const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+                const daysTotal = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+                const years = Math.floor(daysTotal / 365);
+                const months = Math.floor((daysTotal % 365) / 30);
+                const days = (daysTotal % 365) % 30;
+
+                timerElement.textContent = `${years} ano(s), ${months} mês(es), ${days} dia(s), ` +
+                                           `${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            setInterval(updateTimer, 1000);
+            updateTimer();
+        });
+    </script>
+</body>
+</html>
